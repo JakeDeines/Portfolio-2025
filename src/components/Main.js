@@ -32,7 +32,7 @@ function Main() {
         <h1 className="fade-in">Jacob Deines</h1>
         <h2 className="fade-in">Full Stack Developer</h2>
         <p>
-          Hey, I'm Jacob! I build clean, intuitive, and efficient web applications. 
+          Hey, I'm Jacob! I build clean, intuitive, and efficient web applications.
           Check out my work and let's build something great together!
         </p>
       </section>
@@ -41,27 +41,11 @@ function Main() {
       <section className="skills">
         <h2>Skills</h2>
         <ul>
-          {[
-            "JavaScript (ES6+)",
-            "HTML5",
-            "CSS3",
-            "React.js",
-            "Node.js",
-            "jQuery",
-            "Express.js",
-            "RESTful API",
-            "MySQL",
-            "GitHub",
-            "CI/CD",
-            "Postman",
-            "Bash",
-            "AWS",
-            "Jest",
-          ].map((skill, index) => (
+          {["JavaScript (ES6+)", "HTML5", "CSS3", "React.js", "Node.js", "jQuery", "Express.js", "RESTful API", "MySQL", "GitHub", "CI/CD", "Postman", "Bash", "AWS", "Jest"].map((skill, index) => (
             <li
               key={index}
-              ref={(el) => (skillsRef.current[index] = el)} // Store ref properly
-              className="fade" // Starts hidden, fades in on scroll
+              ref={(el) => (skillsRef.current[index] = el)}
+              className="fade"
             >
               {skill}
             </li>
@@ -76,11 +60,8 @@ function Main() {
           {/* NutriSnap Project */}
           <div className="card">
             <div className="card-image">
-              <a href="#">
-                <img
-                  src={`${process.env.PUBLIC_URL}/images/Portfolio NutriSnap.png`}
-                  alt="NutriSnap"
-                />
+              <a href="#" onClick={(e) => e.preventDefault()}>
+                <img src={`${process.env.PUBLIC_URL}/images/Portfolio NutriSnap.png`} alt="NutriSnap" />
               </a>
             </div>
             <div className="card-body">
@@ -90,19 +71,11 @@ function Main() {
               </p>
             </div>
             <div className="project-links">
-              <a
-                href="https://github.com/JakeDeines/NutriSnap"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a href="https://github.com/JakeDeines/NutriSnap" target="_blank" rel="noopener noreferrer">
                 <i className="fas fa-code"></i> View Code
               </a>
-              <a
-                href="https://nutrisnap-production-2c15.up.railway.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <i className="fas fa-link"></i> Live Site
+              <a href="#" onClick={(e) => e.preventDefault()}>
+                <i className="fas fa-link"></i> Live Site (Coming Soon)
               </a>
             </div>
           </div>
@@ -110,11 +83,8 @@ function Main() {
           {/* AI Chatbot Project */}
           <div className="card">
             <div className="card-image">
-              <a href="#">
-                <img
-                  src={`${process.env.PUBLIC_URL}/images/Portfolio Chatbot 2.jpeg`}
-                  alt="AI Chatbot"
-                />
+              <a href="#" onClick={(e) => e.preventDefault()}>
+                <img src={`${process.env.PUBLIC_URL}/images/Portfolio Chatbot 2.jpeg`} alt="AI Chatbot" />
               </a>
             </div>
             <div className="card-body">
@@ -124,19 +94,11 @@ function Main() {
               </p>
             </div>
             <div className="project-links">
-              <a
-                href="https://github.com/JakeDeines/Chatbot"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a href="https://github.com/JakeDeines/Chatbot" target="_blank" rel="noopener noreferrer">
                 <i className="fas fa-code"></i> View Code
               </a>
-              <a
-                href="https://github.com/JakeDeines/Chatbot"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <i className="fas fa-link"></i> Live Site
+              <a href="#" onClick={(e) => e.preventDefault()}>
+                <i className="fas fa-link"></i> Live Site (Coming Soon)
               </a>
             </div>
           </div>
@@ -144,11 +106,8 @@ function Main() {
           {/* GeoSnap Project */}
           <div className="card">
             <div className="card-image">
-              <a href="#">
-                <img
-                  src={`${process.env.PUBLIC_URL}/images/Portfolio GeoSnap.jpg`}
-                  alt="GeoSnap"
-                />
+              <a href="#" onClick={(e) => e.preventDefault()}>
+                <img src={`${process.env.PUBLIC_URL}/images/Portfolio GeoSnap.jpg`} alt="GeoSnap" />
               </a>
             </div>
             <div className="card-body">
@@ -158,15 +117,11 @@ function Main() {
               </p>
             </div>
             <div className="project-links">
-              <a
-                href="https://github.com/yourusername/geosnap"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a href="https://github.com/yourusername/geosnap" target="_blank" rel="noopener noreferrer">
                 <i className="fas fa-code"></i> View Code
               </a>
-              <a href="https://geosnap.com" target="_blank" rel="noopener noreferrer">
-                <i className="fas fa-link"></i> Live Site
+              <a href="#" onClick={(e) => e.preventDefault()}>
+                <i className="fas fa-link"></i> Live Site (Coming Soon)
               </a>
             </div>
           </div>
