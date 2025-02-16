@@ -38,11 +38,9 @@
     ]
   },
   "devDependencies": {
-    "@pmmmwh/react-refresh-webpack-plugin": "^0.5.15",
     "babel-loader": "^9.2.1",
     "postcss": "^8.5.2",
     "postcss-loader": "^8.1.1",
-    "react-refresh": "^0.16.0",
     "source-map-loader": "^5.0.0"
   }
 }
