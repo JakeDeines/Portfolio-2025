@@ -1,0 +1,23 @@
+/* Footer Styles */
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+    border-top: 1px solid #333;
+    padding-top: 1rem;
+}
+
+footer p {
+    margin: 0;
+}
+
+footer p a {
+    color: #f5c518;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+footer p a:hover {
+    color: #e6e6e6;
+}
