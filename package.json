@@ -8,7 +8,6 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "nth-check": "^2.0.1",
-    "postcss": "^8.4.31",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-scripts": "5.0.1",
@@ -39,8 +38,11 @@
     ]
   },
   "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
-    "@babel/plugin-transform-private-property-in-object": "^7.25.9",
+    "@pmmmwh/react-refresh-webpack-plugin": "^0.5.15",
+    "babel-loader": "^9.2.1",
+    "postcss": "^8.5.2",
+    "postcss-loader": "^8.1.1",
+    "react-refresh": "^0.16.0",
     "source-map-loader": "^5.0.0"
   }
 }
