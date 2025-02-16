@@ -60,7 +60,7 @@ function Main() {
           {/* NutriSnap Project */}
           <div className="card">
             <div className="card-image">
-              <a href="#" onClick={(e) => e.preventDefault()}>
+              <a href="/" onClick={(e) => e.preventDefault()}>
                 <img src={`${process.env.PUBLIC_URL}/images/Portfolio NutriSnap.png`} alt="NutriSnap" />
               </a>
             </div>
@@ -74,7 +74,7 @@ function Main() {
               <a href="https://github.com/JakeDeines/NutriSnap" target="_blank" rel="noopener noreferrer">
                 <i className="fas fa-code"></i> View Code
               </a>
-              <a href="#" onClick={(e) => e.preventDefault()}>
+              <a href="/" onClick={(e) => e.preventDefault()}>
                 <i className="fas fa-link"></i> Live Site (Coming Soon)
               </a>
             </div>
@@ -83,7 +83,7 @@ function Main() {
           {/* AI Chatbot Project */}
           <div className="card">
             <div className="card-image">
-              <a href="#" onClick={(e) => e.preventDefault()}>
+              <a href="/" onClick={(e) => e.preventDefault()}>
                 <img src={`${process.env.PUBLIC_URL}/images/Portfolio Chatbot 2.jpeg`} alt="AI Chatbot" />
               </a>
             </div>
@@ -97,7 +97,7 @@ function Main() {
               <a href="https://github.com/JakeDeines/Chatbot" target="_blank" rel="noopener noreferrer">
                 <i className="fas fa-code"></i> View Code
               </a>
-              <a href="#" onClick={(e) => e.preventDefault()}>
+              <a href="l" onClick={(e) => e.preventDefault()}>
                 <i className="fas fa-link"></i> Live Site (Coming Soon)
               </a>
             </div>
@@ -106,7 +106,7 @@ function Main() {
           {/* GeoSnap Project */}
           <div className="card">
             <div className="card-image">
-              <a href="#" onClick={(e) => e.preventDefault()}>
+              <a href="/" onClick={(e) => e.preventDefault()}>
                 <img src={`${process.env.PUBLIC_URL}/images/Portfolio GeoSnap.jpg`} alt="GeoSnap" />
               </a>
             </div>
@@ -120,7 +120,7 @@ function Main() {
               <a href="https://github.com/yourusername/geosnap" target="_blank" rel="noopener noreferrer">
                 <i className="fas fa-code"></i> View Code
               </a>
-              <a href="#" onClick={(e) => e.preventDefault()}>
+              <a href="/" onClick={(e) => e.preventDefault()}>
                 <i className="fas fa-link"></i> Live Site (Coming Soon)
               </a>
             </div>
