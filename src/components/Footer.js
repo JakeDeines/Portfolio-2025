@@ -4,7 +4,7 @@ import '../styles/Footer.css';
 function Footer() {
     return (
         <footer>
-            <p>&copy; 2024 Jacob Deines</p>
+            <p>&copy; 2025 Jacob Deines</p>
         </footer>
        );
 }

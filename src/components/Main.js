@@ -41,7 +41,7 @@ function Main() {
       <section className="skills">
         <h2>Skills</h2>
         <ul>
-          {["JavaScript (ES6+)", "HTML5", "CSS3", "React.js", "Node.js", "jQuery", "Express.js", "RESTful API", "MySQL", "GitHub", "CI/CD", "Postman", "Bash", "AWS", "Jest"].map((skill, index) => (
+          {["JavaScript (ES6+)", "HTML5", "CSS3", "React.js", "Node.js", "MongoDB", "Express.js", "RESTful API", "MySQL", "CI/CD", "Firestore", "Google Cloud", "AWS", "Jest", "Git"].map((skill, index) => (
             <li
               key={index}
               ref={(el) => (skillsRef.current[index] = el)}
@@ -57,74 +57,89 @@ function Main() {
       <section className="projects">
         <h2>Projects</h2>
         <div className="project-cards">
-          {/* NutriSnap Project */}
-          <div className="card">
-            <div className="card-image">
-              <a href="/" onClick={(e) => e.preventDefault()}>
-                <img src={`${process.env.PUBLIC_URL}/images/Portfolio NutriSnap.png`} alt="NutriSnap" />
-              </a>
-            </div>
-            <div className="card-body">
-              <h3 className="project-title">NutriSnap</h3>
-              <p className="project-description">
-                An AI-powered app for analyzing nutritional content of food images.
-              </p>
-            </div>
-            <div className="project-links">
-              <a href="https://github.com/JakeDeines/NutriSnap" target="_blank" rel="noopener noreferrer">
-                <i className="fas fa-code"></i> View Code
-              </a>
-              <a href="/" onClick={(e) => e.preventDefault()}>
-                <i className="fas fa-link"></i> Live Site (Coming Soon)
-              </a>
-            </div>
-          </div>
+         {/* NutriSnap Project */}
+         <div className="card">
+  <div className="card-image">
+    <a href="/" onClick={(e) => e.preventDefault()}>
+      <img src={`${process.env.PUBLIC_URL}/images/Portfolio NutriSnap.png`} alt="NutriSnap" />
+    </a>
+  </div>
 
-          {/* AI Chatbot Project */}
-          <div className="card">
-            <div className="card-image">
-              <a href="/" onClick={(e) => e.preventDefault()}>
-                <img src={`${process.env.PUBLIC_URL}/images/Portfolio Chatbot 2.jpeg`} alt="AI Chatbot" />
-              </a>
-            </div>
-            <div className="card-body">
-              <h3 className="project-title">AI Chatbot</h3>
-              <p className="project-description">
-                A chatbot application powered by OpenAI's API.
-              </p>
-            </div>
-            <div className="project-links">
-              <a href="https://github.com/JakeDeines/Chatbot" target="_blank" rel="noopener noreferrer">
-                <i className="fas fa-code"></i> View Code
-              </a>
-              <a href="l" onClick={(e) => e.preventDefault()}>
-                <i className="fas fa-link"></i> Live Site (Coming Soon)
-              </a>
-            </div>
-          </div>
+  <h3 className="project-title">NutriSnap</h3>
 
-          {/* GeoSnap Project */}
-          <div className="card">
-            <div className="card-image">
-              <a href="/" onClick={(e) => e.preventDefault()}>
-                <img src={`${process.env.PUBLIC_URL}/images/Portfolio GeoSnap.jpg`} alt="GeoSnap" />
-              </a>
-            </div>
-            <div className="card-body">
-              <h3 className="project-title">GeoSnap</h3>
-              <p className="project-description">
-                A geolocation-based photo-sharing app with map integration.
-              </p>
-            </div>
-            <div className="project-links">
-              <a href="https://github.com/yourusername/geosnap" target="_blank" rel="noopener noreferrer">
-                <i className="fas fa-code"></i> View Code
-              </a>
-              <a href="/" onClick={(e) => e.preventDefault()}>
-                <i className="fas fa-link"></i> Live Site (Coming Soon)
-              </a>
-            </div>
-          </div>
+  <p className="project-description">
+    An AI-powered nutrition analysis app that lets users upload food images and receive detailed nutritional info using GPT-4o's vision capabilities.
+  </p>
+
+  <p className="project-tech">
+    <strong>Tech Stack:</strong> React · Node.js · Express · Multer · Sharp · OpenAI Vision API (GPT-4o) · AWS S3 · AWS Amplify
+  </p>
+
+  <div className="project-links">
+    <a href="https://github.com/JakeDeines/NutriSnap" target="_blank" rel="noopener noreferrer">
+      <i className="fas fa-code"></i> View Code
+    </a>
+    <a href="https://nutrisnap-production-2c15.up.railway.app/" target="_blank" rel="noopener noreferrer">
+      <i className="fas fa-link"></i> Live Site 
+    </a>
+  </div>
+</div>
+
+
+         {/* AI Chatbot Project */}
+         <div className="card">
+  <div className="card-image">
+    <a href="/" onClick={(e) => e.preventDefault()}>
+      <img src={`${process.env.PUBLIC_URL}/images/Chatbot_chat_action3.png`} alt="AI Chatbot" />
+    </a>
+  </div>
+
+  <h3 className="project-title">AI Chatbot</h3>
+
+  <p className="project-description">
+    A chatbot application powered by OpenAI's API. Includes modern UI features, message persistence, and AWS hosting for production use.
+  </p>
+
+  <p className="project-tech">
+    <strong>Tech Stack:</strong> React · Node.js · Express · OpenAI API · AWS Amplify · AWS Cognito · GitHub
+  </p>
+
+  <div className="project-links">
+    <a href="https://github.com/JakeDeines/Chatbot" target="_blank" rel="noopener noreferrer">
+      <i className="fas fa-code"></i> View Code
+    </a>
+    <a href="https://main.d3aa51l1wq81s7.amplifyapp.com/login" target="_blank" rel="noopener noreferrer">
+      <i className="fas fa-link"></i> Live Site 
+    </a>
+  </div>
+</div>
+
+
+         {/* Sensor Data Cloud App */}
+         <div className="card">
+  <div className="card-image">
+    <a href="/" onClick={(e) => e.preventDefault()}>
+      <img src={`${process.env.PUBLIC_URL}/images/Looker snip.png`} alt="Sensor Data App" />
+    </a>
+  </div>
+
+  <h3 className="project-title">Sensor Data</h3>
+
+  <p className="project-description">
+    A cloud-native pipeline that processes real-time sensor readings for analytics and dashboarding.
+  </p>
+
+  <p className="project-tech">
+    <strong>Tech Stack:</strong> Python · Flask · Firestore · Google Cloud Storage · BigQuery · GCP CLI · Looker Studio
+  </p>
+
+  <div className="project-links">
+    <a href="https://github.com/JakeDeines/sensor-data-dashboard" target="_blank" rel="noopener noreferrer">
+      <i className="fas fa-code"></i> View Code
+    </a>
+  </div>
+</div>
+
         </div>
       </section>
 
