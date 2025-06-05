@@ -119,7 +119,7 @@ function Main() {
          <div className="card">
   <div className="card-image">
     <a href="/" onClick={(e) => e.preventDefault()}>
-      <img src={`${process.env.PUBLIC_URL}/images/Looker snip.png`} alt="Sensor Data App" />
+      <img src={`${process.env.PUBLIC_URL}/images/Looker-snip.png`} alt="Sensor Data App" />
     </a>
   </div>
 
