@@ -1,352 +1,410 @@
 /* ------------------------------------------------
    1. Global Reset & Body Styles
-   ------------------------------------------------ */
-   * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #222222 25%, #2c2c2c 100%);
-    color: #e6e6e6;
-    line-height: 1.6;
-    margin: 0;
-    width: 100vw;
-    overflow-x: hidden;
-  }
-  
-  /* ------------------------------------------------
-     2. Main Container
-     ------------------------------------------------ */
-  main {
-    max-width: 1400px;
-    width: 100%;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    position: relative;
-    margin: 0 auto;
-  }
-  
-  /* Decorative corners (gold) */
-  main::before,
-  main::after {
-    content: '';
-    position: absolute;
-    border: 4px solid gold;
-  }
-  
-  main::before {
-    top: 0;
-    left: 0;
-    border-width: 6px 0 0 6px;
-    width: 60px;
-    height: 60px;
-  }
-  
-  main::after {
-    bottom: 0;
-    right: 0;
-    border-width: 0 6px 6px 0;
-    width: 60px;
-    height: 60px;
-  }
-  
-  /* ------------------------------------------------
-     3. Welcome Section
-     ------------------------------------------------ */
-  .welcome {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-    margin-top: 7rem;
-    margin-bottom: 20rem;
-  }
-  
-  .welcome h1 {
-    margin-top: 4rem;
-    font-size: 3rem;
-    margin-bottom: 2rem;
-    opacity: 0;
-    animation: fadeIn 1.2s ease-out forwards;
-    animation-delay: 0.3s; /* Slight delay */
-  }
-  
-  .welcome h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    border-bottom: 5px solid #f5c518;
-    opacity: 0;
-    animation: fadeIn 1.2s ease-out forwards;
-    animation-delay: 0.6s; /* Staggered delay */
-  }
-  
-  .welcome p {
-    font-size: 1.2rem;
-    line-height: 1.8;
-    margin-bottom: 4rem;
-    padding-left: 1rem;
-    opacity: 0;
-    animation: fadeIn 1.2s ease-out forwards;
-    animation-delay: 0.6s;
-  }
-  
-  /* ------------------------------------------------
-     4. Skills Section
-     ------------------------------------------------ */
-  .skills {
-    max-width: 800px;
-    margin: 4rem auto;
-    text-align: center;
-    margin-bottom: 20rem;
-  }
-  
-  .skills h2 {
-    display: inline-block;
-    font-size: 2rem;
-    padding-bottom: 0.25rem;
-    margin-bottom: 2rem;
-  }
-  
-  /* Skills List using Grid */
-  .skills ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: grid;
-    gap: 1.4rem;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    align-items: stretch;
-  }
-  
-  /* Initially hidden for fade-in effect */
-  .skills ul li {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #444;
-    padding: 1.2rem 2rem; /* Increase padding */
-    border-radius: 8px; /* More rounded */
-    font-size: 1.5rem; /* Larger text */
-    text-align: center;
-    line-height: 1.1; /* Helps prevent text from getting squeezed */
-    height: 65px; /* Increase height */
-    min-height: 65px; /* Maintain consistency */
-    min-width: 150px; /* Prevent buttons from being too small */
-    width: auto; /* Auto width for better spacing */
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Stronger shadow */
-    opacity: 0; /* Initially hidden */
-    transform: translateY(20px);
-    transition: opacity 1s ease-out, transform 1s ease-out;
-  }
-  
-  /* Fade-in class (added dynamically via React) */
-  .skills ul li.fade-in {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  
-  /* Hover Effect */
-  .skills ul li:hover {
-    transform: translateY(-5px) scale(1.1); /* More lift */
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.4); /* Stronger shadow */
-    background-color: #ddd;
-    color: black;
-    transition: all 0.3s ease-in-out;
-}
-  
-  /* ------------------------------------------------
-     5. Projects Section
-     ------------------------------------------------ */
-  .projects {
-    max-width: 1300px;
-    margin: 4rem auto;
-    margin-bottom: 20rem;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeIn 1.2s ease-out forwards;
-    animation-delay: 0.3s;
-  }
-  
-  .projects h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    text-align: center;
-  }
-  
-  .project-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* 👈 cleaner grid */
-    gap: 2.5rem; /* More consistent spacing */
-    align-items: stretch;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeIn 1.5s ease-out forwards;
-    animation-delay: 0.5s;
-  }
-  
-  .project-title {
-    font-size: 2rem;
-    margin: 1rem 0 0.5rem 0;
-    color: #f5c518;
-  }
-  
-  .project-description {
-    font-size: 1.1rem;
-    color: #ddd;
-    line-height: 1.6;
-    margin: 0.75rem 0;
-    font-weight: 300;
-    min-height: 170px; /* Force same height */
-  }
-  
-  /* Card Layout */
-  .card {
-    flex: 1 1 calc(30% - 1rem);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    background-color: #333;
-    border-radius: 8px;
-    padding: 1.5rem;
-    text-align: center;
-    min-height: 460px;
-    height: 100%;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-  }
-  
-  .card:hover {
-    transform: scale(1.05);
-  }
-  
-  .card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 1rem;
-  }
-  
-/* Tech Stack */
-.project-tech {
-  height: 110px; /* Make all boxes the same height */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background-color: #2a2a2a;
-  color: #e6e6e6;
-  font-size: 0.95rem;
-  font-weight: 400;
-  padding: 0.75rem 1rem;
-  margin: 1rem 0 1.25rem;
-  border: 1px solid #444;
-  border-radius: 6px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-  text-align: left;
-}
-.project-tech strong {
-  margin-right: 0.rem; /* space after "Tech Stack:" */
-  color: #f5c518;
-  font-weight: 600;
-}
-.project-tech:hover {
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-  background-color: #2f2f2f;
-  transition: all 0.3s ease;
+------------------------------------------------ */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root{
+  /* scale tokens */
+  --space-1: .25rem;
+  --space-2: .5rem;
+  --space-3: .75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+
+  --radius-s: 8px;
+  --radius-m: 10px;
+  --radius-l: 16px;
+
+  --teal: #14b8a6;
+  --teal-600: #0d9488;
+  --teal-rgb: 20,184,166;
+
+  --gold: #f5c518;
+  --gold-rgb: 245,197,24;
+
+  --text: #e6e6e6;
+  --text-muted: #dcdcdc;
+
+  --bg-0: #111;
+  --bg-1: #1a1a1a;
+  --bg-2: #222222;
+  --bg-3: #2c2c2c;
+  --bg-4: #2f2f2f;
+  --line: rgba(255,255,255,.05);
 }
 
-  /* Project Links */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, var(--bg-2) 25%, var(--bg-3) 100%);
+  color: var(--text);
+  line-height: 1.6;
+  width: auto;
+  overflow-x: hidden;
+}
 
-  .project-links {
-    display: flex;
-    justify-content: space-around;
-    gap: 2rem;
-    margin-top: auto;
-  }
-  
-  .project-links a {
-    color: #ddd;
-    text-decoration: none;
-    font-size: 1.4rem;
-    transition: color 0.3s;
-  }
-  
-  .project-links a:hover {
-    color: #f5c518;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-  }
-  
- /* ------------------------------------------------
-     6. Contact Form 
-     ------------------------------------------------ */
-     .contact-form {
-      max-width: 600px;
-      width: 100%;
-      background-color: #333;
-      padding: 1rem;
-      border-radius: 8px;
-      margin: 4rem auto;
-    }
-    
-    .contact-form h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      text-align: center;
-      color: #ddd;
-    }
-    
-    .contact-form label {
-      display: block;
-      margin-bottom: 0.5rem;
-      font-size: 1.2rem;
-      color: #ddd;
-    }
-    
-    .contact-form input,
-    .contact-form textarea {
-      width: 100%;
-      padding: 0.5rem;
-      margin-bottom: 1rem;
-      border: 1px solid #333;
-      border-radius: 4px;
-      background-color: #1a1a1a;
-      color: #ddd;
-      font-size: 1rem;
-    }
-    
-    .contact-form textarea {
-      height: 150px;
-    }
-    
-    .contact-form button {
-      width: auto;
-      padding: 0.5rem 1rem;
-      border: none;
-      border-radius: 4px;
-      background-color: #f5c518;
-      color: #1a1a1a;
-      font-size: 1.2rem;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-    
-    .contact-form button:hover {
-      background-color: #e6b517;
-    }
-  
-  /* ------------------------------------------------
-     7. Animations
-     ------------------------------------------------ */
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
+/* ------------------------------------------------
+   2. Main Container
+------------------------------------------------ */
+main {
+  max-width: 1400px;
+  width: 100%;
+  padding: var(--space-8);
+  border-radius: var(--radius-m);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, .1);
+  position: relative;
+  margin: 0 auto;
+}
+
+/* Decorative corners with subtle glow */
+main::before,
+main::after {
+  content: '';
+  position: absolute;
+  border: 4px solid;
+  width: 60px; height: 60px;
+  pointer-events: none;
+}
+
+/* Top-left: gold + glow */
+main::before {
+  top: 0; left: 0;
+  border-color: var(--gold);
+  border-width: 6px 0 0 6px;
+  filter:
+    drop-shadow(0 0 6px rgba(var(--gold-rgb), .18))
+    drop-shadow(0 0 12px rgba(var(--gold-rgb), .08));
+}
+
+/* Bottom-right: teal + glow */
+main::after {
+  bottom: 0; right: 0;
+  border-color: var(--teal);
+  border-width: 0 6px 6px 0;
+  filter:
+    drop-shadow(0 0 6px rgba(var(--teal-rgb), .18))
+    drop-shadow(0 0 12px rgba(var(--teal-rgb), .08));
+}
+
+/* ------------------------------------------------
+   3. Welcome Section
+------------------------------------------------ */
+.welcome { max-width: 800px; margin: 7rem auto 20rem; text-align: center; }
+.welcome h1 {
+  margin-top: 4rem; font-size: 3rem; margin-bottom: 2rem;
+  opacity: 0; animation: fadeIn 1.2s ease-out forwards; animation-delay: .3s;
+}
+.welcome h2 { border-bottom: none; }
+.welcome p {
+  font-size: 1.2rem; line-height: 1.8; margin-bottom: 4rem; padding-left: 1rem;
+  opacity: 0; animation: fadeIn 1.2s ease-out forwards; animation-delay: .6s;
+}
+
+/* Teal text + crisp gold underline with masked fade + subtle glow */
+.welcome-subtitle{
+  --underline-extend: 14%;
+  position: relative; display: inline-block;
+  color: var(--teal); font-weight: 700;
+  font-size: clamp(1.6rem, 5vw, 2.4rem);
+  line-height: 1.15; letter-spacing: .2px;
+  padding-bottom: .55rem; margin-bottom: 1.2rem;
+  text-shadow: 0 0 6px rgba(var(--teal-rgb), .08), 0 0 2px rgba(var(--teal-rgb), .16);
+}
+.welcome-subtitle::before{
+  content:""; position:absolute; left:calc(-1*var(--underline-extend)); right:calc(-1*var(--underline-extend)); bottom:0;
+  height:6px; background:var(--gold); opacity:.16; filter:blur(6px); border-radius:999px;
+  -webkit-mask-image:linear-gradient(to right,transparent 0%,black 12%,black 88%,transparent 100%);
+          mask-image:linear-gradient(to right,transparent 0%,black 12%,black 88%,transparent 100%);
+  pointer-events:none;
+}
+.welcome-subtitle::after{
+  content:""; position:absolute; left:calc(-1*var(--underline-extend)); right:calc(-1*var(--underline-extend)); bottom:0;
+  height:3px; background:var(--gold); border-radius:999px;
+  -webkit-mask-image:linear-gradient(to right,transparent 0%,black 12%,black 88%,transparent 100%);
+          mask-image:linear-gradient(to right,transparent 0%,black 12%,black 88%,transparent 100%);
+  pointer-events:none;
+}
+.welcome-subtitle:hover{ color:var(--teal-600); }
+
+/* ------------------------------------------------
+   4. Skills Section
+------------------------------------------------ */
+.skills { max-width: 980px; margin: 4rem auto 20rem; text-align: center; }
+.skills h2 { display:inline-block; font-size:2rem; margin-bottom:2rem; }
+
+.skills-grid{
+  list-style:none; display:grid;
+  grid-template-columns:repeat(4, minmax(160px, 1fr));
+  gap:1.4rem 2rem; align-items:start; justify-items:center; padding:0;
+}
+
+.skill-item{
+  display:flex; flex-direction:column; align-items:center; gap:.55rem;
+  padding:.35rem 0; transform:translateY(16px);
+  transition:transform .18s ease, filter .25s ease;
+}
+.skills .fade:not(.fade-in){ opacity:0; }
+.skills .fade.fade-in{ opacity:1; transform:translateY(0); }
+
+/* icon wrapper fades too (prevents icon pop when font loads) */
+.skill-icon-wrap{
+  width:44px; height:44px; display:grid; place-items:center;
+  transition:filter .25s ease;
+  opacity: 0;
+  animation: none;
+}
+.skill-item.fade-in .skill-icon-wrap{
+  animation: fadeIn .85s ease forwards;
+  animation-delay: var(--stagger, 0ms); /* set from JS */
+}
+
+/* devicon + lucide sizes */
+.skill-icon.devicon{ font-size:42px; line-height:1; }
+.skill-icon.lucide{ width:40px; height:40px; stroke:currentColor; stroke-width:2.2; }
+
+/* brighten Express mono icon on dark bg */
+.skill-icon.devicon.devicon-express-original{ color:#eaeaea; }
+
+/* Force GitHub icon to appear white on dark background */
+.skill-icon.devicon.devicon-github-original { color:#fff !important; filter:none; }
+
+.skill-label{ font-size:1.05rem; color:var(--text); max-width:18ch; text-wrap:balance; text-align:center; }
+
+/* hover glow -> subtle teal */
+.skill-item:hover{ transform:translateY(-3px); }
+.skill-item:hover .skill-icon-wrap{ filter: drop-shadow(0 0 6px rgba(var(--teal-rgb), .18)); }
+
+/* ------------------------------------------------
+   5. Projects Section
+------------------------------------------------ */
+.projects{
+  max-width:1200px; margin:4rem auto 20rem;
+  opacity:0; transform:translateY(20px);
+  animation:fadeIn 1.2s ease-out forwards; animation-delay:.45s; /* faster */
+}
+.projects h2{ font-size:2rem; margin-bottom:1rem; text-align:center; }
+
+.project-cards{
+  display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr));
+  gap:2rem; align-items:stretch;
+  opacity:0; transform:translateY(20px);
+  animation:fadeIn 1.2s ease-out forwards; animation-delay:.65s; /* faster */
+}
+.project-cards.two-by-two{ grid-template-columns:repeat(2, minmax(340px, 1fr)); }
+
+/* staggered reveal for cards */
+.card.reveal{
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(18px);
+}
+.card.reveal.in{
+  visibility: visible;
+  animation: fadeIn 1.2s ease-out forwards; /* delay set inline by JS */
+}
+
+.card{
+  display:flex; flex-direction:column;
+  background:var(--bg-4); border-radius:var(--radius-l);
+  overflow:hidden; border:1px solid var(--line);
+  box-shadow:0 6px 24px rgba(0,0,0,.25);
+  transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  min-height:620px;
+}
+.card:hover{
+  transform:translateY(-4px);
+  border-color:rgba(var(--teal-rgb), .38);
+  box-shadow:
+    0 10px 28px rgba(0,0,0,.35),
+    0 0 0 1px rgba(var(--teal-rgb), .30) inset,
+    0 6px 18px rgba(var(--teal-rgb), .18);
+}
+
+/* Media takes ~half the card height */
+.card-image{
+  position:relative; height:48%; aspect-ratio:auto;
+  overflow:hidden; background:#1f1f1f;
+}
+.card-image img{
+  width:100%; height:100%; object-fit:cover; display:block;
+  transform: scale(1);
+  transition: transform .28s ease;
+}
+.card:hover .card-image img{ transform: scale(1.03); }
+
+/* optional object-position helpers */
+.card-image.object-top img{ object-position:50% 0%; }
+.card-image.object-center img{ object-position:50% 50%; }
+.card-image.object-40 img{ object-position:50% 40%; }
+
+/* optional full-image variant (overlay body) */
+.card--full-image{ position:relative; min-height:620px; }
+.card--full-image .card-image{ height:100%; aspect-ratio:auto; }
+.card--full-image .card-body{
+  position:absolute; inset:0; display:flex; flex-direction:column;
+  justify-content:flex-end; gap:.65rem; padding:1.1rem 1.25rem 1.25rem;
+  background:linear-gradient(to top, rgba(0,0,0,.55) 0%, rgba(0,0,0,.35) 35%, rgba(0,0,0,0) 65%);
+}
+.card--full-image .project-title{ color:#fff; text-shadow:0 2px 8px rgba(0,0,0,.35); }
+.card--full-image .project-description{ color:#f2f2f2; -webkit-line-clamp:4; }
+.card--full-image .project-tech{ background:rgba(0,0,0,.45); border-color:rgba(255,255,255,.2); color:#e8e8e8; }
+.card--full-image .project-tech strong{ color:var(--gold); }
+
+/* Body */
+.card-body{
+  flex:1; display:flex; flex-direction:column; gap:.5rem;
+  padding:1.1rem 1.25rem 1.25rem;
+}
+.project-title{ font-size:1.6rem; margin:.35rem 0 .4rem; color:var(--gold); text-align:center; }
+.project-description{
+  font-size:1rem; color:var(--text); line-height:1.55;
+  margin:.15rem auto .35rem; max-width:62ch;
+  display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:3; overflow:hidden;
+}
+.project-tech{
+  display:block; background:#242424; border:1px solid #3a3a3a;
+  border-radius:10px; padding:.65rem .8rem; margin:.2rem 0 .6rem;
+  font-size:.92rem; color:var(--text-muted);
+}
+.project-tech strong{ margin-right:.25rem; color:var(--gold); font-weight:600; }
+
+.project-links{
+  margin-top:auto; display:flex; gap:.9rem; flex-wrap:wrap;
+  justify-content:center; align-items:center;
+}
+.project-links a{
+  display:inline-flex; align-items:center; gap:.45rem;
+  padding:.55rem .9rem; border-radius:10px; min-width:140px;
+  font-size:.95rem; justify-content:center; text-decoration:none;
+  color:#0e1111; background:var(--gold);
+  box-shadow:0 2px 8px rgba(0,0,0,.25);
+  transition:transform .15s ease, box-shadow .15s ease, filter .15s ease;
+}
+.project-links a.secondary{ background:#3a3a3a; color:#eaeaea; }
+.project-links a:hover{ transform:translateY(-1px); box-shadow:0 6px 14px rgba(0,0,0,.35); }
+
+/* button SVGs fade in after card reveal + teal halo on interaction */
+.project-links a svg{
+  width:18px; height:18px; flex:0 0 auto;
+  opacity: 0; transform: translateY(2px);
+  transition: opacity .45s ease, transform .45s ease, filter .35s ease;
+}
+.card.reveal.in .project-links a svg{
+  opacity: 1; transform: translateY(0);
+  transition-delay: .1s;
+}
+.project-links a:hover svg,
+.project-links a:focus-visible svg{
+  filter: drop-shadow(0 0 5px rgba(var(--teal-rgb), .22));
+}
+.project-links a.secondary:hover svg,
+.project-links a.secondary:focus-visible svg{
+  filter: drop-shadow(0 0 6px rgba(var(--teal-rgb), .28));
+}
+
+/* focus ring for accessibility */
+.project-links a:focus-visible{
+  outline: 2px solid rgba(var(--teal-rgb), .45);
+  outline-offset: 3px;
+}
+
+/* inline devicon helper */
+.inline-devicon{ font-size:1.05em; vertical-align:-2px; margin:0 6px 0 8px; }
+
+/* ------------------------------------------------
+   6. Contact Form
+------------------------------------------------ */
+.contact-form{
+  max-width:600px; width:100%;
+  background:#333; padding:1rem; border-radius:var(--radius-s);
+  margin:4rem auto;
+}
+.contact-form h2{ font-size:2rem; margin-bottom:1rem; text-align:center; color:#ddd; }
+.contact-form label{ display:block; margin-bottom:.5rem; font-size:1.2rem; color:#ddd; }
+.contact-form input, .contact-form textarea{
+  width:100%; max-width:100%; padding:.5rem; margin-bottom:1rem;
+  border:1px solid #333; border-radius:4px; background:var(--bg-1); color:#ddd; font-size:1rem;
+  box-sizing:border-box;
+}
+.contact-form textarea{ height:150px; resize:vertical; }
+.contact-form button{
+  width:auto; padding:.5rem 1rem; border:none; border-radius:4px;
+  background:var(--gold); color:#1a1a1a; font-size:1.2rem; cursor:pointer; transition:background-color .3s;
+}
+.contact-form button:hover{ background:#e6b517; }
+
+/* ------------------------------------------------
+   7. Animations & Prefs
+------------------------------------------------ */
+@keyframes fadeIn{ from{opacity:0; transform:translateY(20px);} to{opacity:1; transform:translateY(0);} }
+
+@media (prefers-reduced-motion: reduce){
+  .projects, .project-cards{ animation:none; transform:none; }
+  .card, .project-links a, .skill-item, .skill-icon-wrap{ transition:none !important; }
+  .card.reveal{ opacity:1; visibility:visible; transform:none; }
+  .card.reveal.in{ animation:none; }
+  .skill-icon-wrap{ opacity:1; animation:none; }
+  .project-links a svg{ opacity:1; transform:none; }
+}
+
+/* ------------------------------------------------
+   8. Responsive Enhancements
+------------------------------------------------ */
+@media (max-width:1024px){
+  main{ padding:1.5rem; }
+  .welcome, .skills, .projects{ margin:4rem auto 10rem; }
+  .skills-grid{ grid-template-columns:repeat(3, minmax(150px, 1fr)); }
+}
+@media (max-width:768px){
+  .welcome h1{ font-size:clamp(2rem, 6vw, 2.4rem); }
+  .welcome h2{ font-size:clamp(1.4rem, 5vw, 1.8rem); }
+  .welcome p{ font-size:1rem; padding-left:0; }
+
+  .projects{ margin:3rem auto 6rem; }
+  .skills  { margin:3rem auto 8rem; }
+  .welcome { margin:4rem auto 8rem; }
+
+  .skills-grid{ grid-template-columns:repeat(2, minmax(140px, 1fr)); gap:1.1rem 1.3rem; }
+  .skill-icon-wrap{ width:40px; height:40px; }
+  .skill-icon.devicon{ font-size:38px; }
+  .skill-icon.lucide{ width:36px; height:36px; }
+  .skill-label{ font-size:1rem; }
+
+  .project-cards{ grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:1.2rem; }
+  .project-cards.two-by-two{ grid-template-columns:1fr; }
+
+  .card{ min-height:560px; }
+  .card-image{ height:44%; }
+  .card-body{ padding:.9rem 1rem 1rem; }
+  .project-title{ font-size:1.3rem; margin:.25rem 0 .35rem; }
+  .project-description{ font-size:.95rem; line-height:1.5; }
+  .project-tech{ font-size:.9rem; padding:.55rem .7rem; margin-bottom:.8rem; }
+  .project-links{ gap:.6rem; }
+  .project-links a{ min-width:0; width:100%; font-size:.95rem; padding:.65rem .8rem; }
+}
+@media (max-width:480px){
+  main{ padding:1rem; }
+  .welcome{ margin:3rem auto 4rem; }
+  .skills { margin:2.5rem auto 4rem; }
+  .projects{ margin:2.5rem auto 4rem; }
+
+  .card{ min-height:500px; }   /* mobile tweak */
+  .card-image{ height:46%; }   /* mobile tweak */
+
+  .project-title{ font-size:1.15rem; }
+  .project-description{ -webkit-line-clamp:4; }
+
+  .project-links{ gap:.7rem; }
+  .project-links a{ padding:.7rem 1rem; min-width:0; width:100%; }
+}
+
+/* Touch/perf polish */
+@media (hover: none) and (pointer: coarse){
+  .card{ box-shadow:0 4px 14px rgba(0,0,0,.22); }
+  .card:hover{ transform:none; box-shadow:0 6px 18px rgba(0,0,0,.25); }
+  .card:hover .card-image img{ transform:none; }
+}
+
+/* Paint only when needed (Chrome/Edge/Brave) */
+.projects, .skills{ content-visibility: auto; contain-intrinsic-size: 1px 1000px; }
