@@ -157,10 +157,9 @@ function Main() {
       {/* Welcome */}
       <section className="welcome">
         <h1 className="fade-in">Jacob Deines</h1>
-        <h2 className="welcome-subtitle fade-in">Full-Stack Developer</h2>
+        <h2 className="welcome-subtitle fade-in">Software Engineer</h2>
         <p>
-          Hey, I'm Jacob! I build clean, intuitive, and efficient web applications.
-          Check out my work and let's build something great together!
+          Hey, I'm Jacob! I build AI-powered, cloud based applications. Check out my work and let's build the future together.
         </p>
       </section>
 
