@@ -22,7 +22,7 @@ function Header() {
           </li>
           <li>
             <a
-              href={`${process.env.PUBLIC_URL}/Jacob_Deines_Resume_2025.pdf`}
+              href={`${process.env.PUBLIC_URL}/Jacob_Deines_Software_Data_Engineer_Resume.pdf`}
               target="_blank"
               rel="noopener noreferrer"
             >

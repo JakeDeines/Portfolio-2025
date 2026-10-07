@@ -3,7 +3,11 @@ import "../styles/Main.css";
 import ContactForm from "./ContactForm";
 
 /* Lucide icons for non-Devicon items in Skills */
-import { Workflow, Network, Flame } from "lucide-react";
+import {   Network,
+  Workflow,
+  BarChart3,
+  Database,
+  ChartNoAxesCombined } from "lucide-react";
 
 /* --- Inline SVGs for GitHub + Globe (no external icon deps) --- */
 const GitHubIcon = () => (
@@ -64,32 +68,47 @@ function Main() {
   }, []);
 
   /* -------- Skills grid (Devicon + Lucide) -------- */
-  const skillsGrid = [
-    { label: "JavaScript (ES6+)", type: "devicon", iconClass: "devicon-javascript-plain colored" },
-    { label: "HTML5",              type: "devicon", iconClass: "devicon-html5-plain colored" },
-    { label: "CSS3",               type: "devicon", iconClass: "devicon-css3-plain colored" },
-    { label: "React.js",           type: "devicon", iconClass: "devicon-react-original colored" },
+const skillsGrid = [
+  // Software Development
+  { label: "JavaScript",      type: "devicon", iconClass: "devicon-javascript-plain colored" },
+  { label: "React.js",        type: "devicon", iconClass: "devicon-react-original colored" },
+  { label: "Node.js",         type: "devicon", iconClass: "devicon-nodejs-plain colored" },
+  { label: "REST APIs",       type: "lucide",  icon: Network },
 
-    { label: "Node.js",            type: "devicon", iconClass: "devicon-nodejs-plain colored" },
-    { label: "MongoDB",            type: "devicon", iconClass: "devicon-mongodb-plain colored" },
-    { label: "Express.js",         type: "devicon", iconClass: "devicon-express-original" }, // mono
-    { label: "RESTful API",        type: "lucide",  icon: Network },
+  // Data & Analytics
+  { label: "SQL",             type: "devicon", iconClass: "devicon-azuresqldatabase-plain colored" },
+  { label: "Power BI",        type: "lucide",  icon: BarChart3 },
+  { label: "Data Modeling",   type: "lucide",  icon: Database },
+  { label: "Power Query / DAX", type: "lucide", icon: ChartNoAxesCombined },
 
-    { label: "MySQL",              type: "devicon", iconClass: "devicon-mysql-plain colored" },
-    { label: "CI/CD",              type: "lucide",  icon: Workflow },
-    { label: "Firestore",          type: "lucide",  icon: Flame },
-    { label: "Google Cloud",       type: "devicon", iconClass: "devicon-googlecloud-plain colored" },
+  // Data Engineering & Cloud
+  { label: "ETL / Pipelines", type: "lucide",  icon: Workflow },
+  { label: "Microsoft Azure", type: "devicon", iconClass: "devicon-azure-plain colored" },
+  { label: "Python",          type: "devicon", iconClass: "devicon-python-plain colored" },
+  { label: "Systems Integration", type: "lucide", icon: Network },
 
-    // AWS wordmark with smile (colored)
-    { label: "AWS",                type: "devicon", iconClass: "devicon-amazonwebservices-plain-wordmark colored" },
-
-    { label: "Jest",               type: "devicon", iconClass: "devicon-jest-plain colored" },
-    { label: "Git",                type: "devicon", iconClass: "devicon-git-plain colored" },
-    { label: "GitHub",             type: "devicon", iconClass: "devicon-github-original colored" },
-  ];
+  // Engineering Tooling
+  { label: "AWS",             type: "devicon", iconClass: "devicon-amazonwebservices-plain-wordmark colored" },
+  { label: "MySQL",           type: "devicon", iconClass: "devicon-mysql-plain colored" },
+  { label: "Git",             type: "devicon", iconClass: "devicon-git-plain colored" },
+  { label: "CI/CD",           type: "lucide",  icon: Workflow },
+];
 
   /* -------- Projects -------- */
   const projects = [
+    {
+      title: "Azure Manufacturing Data Pipeline",
+      img: `${process.env.PUBLIC_URL}/images/smartsuite_etl_pipeline.png`,
+      alt: "SmartSuite ETL preview",
+      desc:
+        "Azure-based ETL pipeline for manufacturing environmental data. Validates sensor readings and transforms raw data into analytics-ready Parquet datasets.",
+      tech:
+        "Python · Azure Blob Storage · Azure Data Factory / Synapse Pipelines · Parquet · SQL · Power BI (planned)",
+      imageClass: "object-center",
+      links: [
+        { href: "https://github.com/JakeDeines/SmartSuite", label: "View Code" }
+      ]
+    },
     {
       title: "NutriSnap",
       img: `${process.env.PUBLIC_URL}/images/Portfolio NutriSnap.png`,
@@ -131,19 +150,7 @@ function Main() {
         { href: "https://github.com/JakeDeines/sensor-data-dashboard", label: "View Code" }
       ]
     },
-    {
-      title: "SmartSuite",
-      img: `${process.env.PUBLIC_URL}/images/smartsuite_etl_pipeline.png`,
-      alt: "SmartSuite ETL preview",
-      desc:
-        "An Azure-based ETL pipeline for environmental room monitoring (Temp/RH/DP). Ingests data, validates ranges, and writes Parquet across Bronze → Silver → Gold layers.",
-      tech:
-        "Python · Azure Blob Storage · Azure Data Factory / Synapse Pipelines · Parquet · SQL · Power BI (planned)",
-      imageClass: "object-center",
-      links: [
-        { href: "https://github.com/JakeDeines/SmartSuite", label: "View Code" }
-      ]
-    }
+    
   ];
 
   /* Prefer live site for the image click, else first link */
@@ -157,9 +164,9 @@ function Main() {
       {/* Welcome */}
       <section className="welcome">
         <h1 className="fade-in">Jacob Deines</h1>
-        <h2 className="welcome-subtitle fade-in">Software Engineer</h2>
+        <h2 className="welcome-subtitle fade-in">Software & Data Engineer</h2>
         <p>
-          Hey, I'm Jacob! I build AI-powered, cloud based applications. Check out my work and let's build the future together.
+         I build applications, data pipelines, and operational tools for manufacturing and business systems.
         </p>
       </section>
 
